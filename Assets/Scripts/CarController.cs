@@ -17,7 +17,7 @@ public class CarController : MonoBehaviour
 
     private float curYRot;
 
-    private bool accelateInput;
+    private bool accelerateInput;
     private float turnInput;
 
     public Rigidbody rig;
@@ -29,36 +29,55 @@ public class CarController : MonoBehaviour
 
     private void Update()
     {
+        // calculate the amount we can turn based on the dot product between our velocity and facing direction
         float turnRate = Vector3.Dot(rig.velocity.normalized, carModel.forward);
         turnRate = Mathf.Abs(turnRate);
 
         curYRot += turnInput * turnSpeed * turnRate * Time.deltaTime;
 
         carModel.position = transform.position + startModelOffset;
-        carModel.eulerAngles = new Vector3(0, curYRot, 0);
+        //carModel.eulerAngles = new Vector3(0, curYRot, 0);
+
+        CheckGround();
+
     }
 
     private void FixedUpdate()
     {
-        if (accelateInput == true)
+        if (accelerateInput == true)
         {
             rig.AddForce(carModel.forward * acceleration, ForceMode.Acceleration);
         }
     }
 
-    public void OnAccelerateInput(InputAction.CallbackContext context)
+    // rotate with the surface below us
+    void CheckGround()
     {
-        if(context.phase == InputActionPhase.Performed)
-        {
-            accelateInput = true;
-        }
+        Ray ray = new Ray(transform.position + new Vector3(0, -0.75f, 0), Vector3.down);
+        RaycastHit hit;
 
+        if (Physics.Raycast(ray, out hit, 1.0f))
+        {
+            carModel.up = hit.normal;
+        }
         else
         {
-            accelateInput = false;
+            carModel.up = Vector3.up;
         }
+
+        carModel.Rotate(new Vector3(0, curYRot, 0), Space.Self);
     }
 
+    // called when we press down the accelerate input
+    public void OnAccelerateInput(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+            accelerateInput = true;
+        else
+            accelerateInput = false;
+    }
+
+    // called when we modify the turn input
     public void OnTurnInput(InputAction.CallbackContext context)
     {
         turnInput = context.ReadValue<float>();
