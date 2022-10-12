@@ -52,6 +52,10 @@ MonoBehaviour:
   turnSpeed: 100
   carModel: {fileID: 5647964869400654065}
   groundCheckRate: 0.05
+  curTrackZone: {fileID: 0}
+  zonesPassed: 0
+  racePosition: 0
+  curLap: 0
   rig: {fileID: 5647964869077016007}
 --- !u!114 &5647964869077016005
 MonoBehaviour:
@@ -65,7 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 1779db948bb83492894dbe7874191c49, type: 3}
+  m_Actions: {fileID: 0}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
