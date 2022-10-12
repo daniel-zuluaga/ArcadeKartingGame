@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class TrackZone : MonoBehaviour
 {
+    //public bool isGate;
+
     private void OnTriggerEnter(Collider other)
     {
-        CarController car = other.GetComponent<CarController>();
-        car.curTrackZone = this;
-        car.zonesPassed++;
+        if (other.CompareTag("Player"))
+        {
+            CarController car = GetComponent<CarController>();
+            car.curTrackZone = this;
+            car.zonesPassed++;
+        }
     }
 }

@@ -10459,7 +10459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_NotificationBehavior: 0
-  m_MaxPlayerCount: 4
+  m_MaxPlayerCount: -1
   m_AllowJoining: 1
   m_JoinBehavior: 0
   m_PlayerJoinedEvent:
@@ -10516,6 +10516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cars: []
+  positionUpdateRate: 0.05
 --- !u!1001 &1991343575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11358,7 +11359,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3225332218955535210, guid: bbdfb23297ad84adc955cc9332c2249f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.8
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3225332218955535210, guid: bbdfb23297ad84adc955cc9332c2249f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -11394,7 +11395,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5531268346267810190, guid: bbdfb23297ad84adc955cc9332c2249f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbdfb23297ad84adc955cc9332c2249f, type: 3}
