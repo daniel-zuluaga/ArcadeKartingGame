@@ -23,11 +23,8 @@ that it works on any platform, the turns, skids and much more
 
 It's a running game where each player has to do their best to stay in first place. Make the turns and skids very well to be able to beat all the players, it has a function of being able to split the template into 4 so that four people can play locally on the same screen
 
-game data
-Car
-
+car game data
 acceleration: 50
-
 turn: 100
 
 Ground:
