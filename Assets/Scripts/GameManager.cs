@@ -37,17 +37,17 @@ public class GameManager : MonoBehaviour
             cars[x].racePosition = cars.Count - x;
         }
     }
+
     int SortPosition(CarController a, CarController b)
     {
         if (a.zonesPassed > b.zonesPassed)
             return 1;
-
         else if (b.zonesPassed > a.zonesPassed)
             return -1;
 
         float aDist = Vector3.Distance(a.transform.position, a.curTrackZone.transform.position);
         float bDist = Vector3.Distance(b.transform.position, b.curTrackZone.transform.position);
 
-        return aDist > bDist ? 1 : -1;
+        return aDist < bDist ? 1 : -1;
     }
 }
